@@ -1,0 +1,120 @@
+.projects-section {
+  background-color: #ffffff;
+  padding: 60px 0 80px;
+  color: #000000;
+}
+
+.projects-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 56px;
+  font-weight: 300;
+  color: #bdbdbd;
+  margin: 0 0 40px 40px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+  padding: 0 40px;
+}
+
+.project-card {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 255px;
+  grid-column: span 2;
+}
+
+.featured {
+  height: 380px;
+  grid-column: span 3;
+}
+
+.project-card:not(.featured) {
+  grid-column: span 2;
+}       
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 60px;
+  gap: 30px;
+}
+
+.project-name {
+  font-family: 'Roboto', sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.view-more {
+  background: transparent;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.view-more .arrow {
+  font-size: 18px;
+}
+
+.projects-footer {
+  margin-top: 40px;
+  padding: 0 40px;
+}
+
+.all-projects-btn {
+  background: #3a3a3a;
+  color: #ffffff;
+  border: none;
+  padding: 18px 40px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.all-projects-btn .arrow {
+  font-size: 16px;
+}
+
+@media (max-width: 960px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+  }
+  .featured {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 200px;
+  }
+    .featured {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+} 
