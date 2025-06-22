@@ -30,13 +30,14 @@
 .featured {
   height: 380px;
   grid-column: span 3;
+  position: relative;
 }
 
 .project-card:not(.featured) {
   grid-column: span 2;
 }       
 
-.overlay {
+.project-overlay {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.55);

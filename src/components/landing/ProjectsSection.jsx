@@ -14,7 +14,7 @@ const ProjectsSection = () => {
       <div className="projects-grid">
         {/* Featured Project */}
         <div className="project-card featured" style={{ backgroundImage: `url(${proj1})` }}>
-          <div className="overlay">
+          <div className="project-overlay">
             <h3 className="project-name">Sample Project</h3>
             <button className="view-more">View More <span className="arrow">→</span></button>
           </div>

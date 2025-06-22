@@ -50,6 +50,8 @@
 .project-item-image img {
   width: 100%;
   display: block;
+  max-height: 300px;
+  object-fit: cover;
 }
 
 .project-item-info {

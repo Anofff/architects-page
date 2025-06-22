@@ -1,24 +1,34 @@
 import React, { useState } from 'react';
 import './GalleryGrid.css';
 
-// Create a mock list of images for the grid
-// In a real app, this would come from a CMS or API
-const images = [
-  'placeholder', // For the grey box
-  '../../assets/project-2.jpg',
-  '../../assets/about-1.jpg',
-  '../../assets/project-3.png',
-  '../../assets/project-4.png',
-  '../../assets/project-5.png',
-  '../../assets/about-2.jpg',
-  '../../assets/about-3.jpg',
-  '../../assets/sample-project.jpg',
-  '../../assets/hero-building.png',
+// Import all images
+// In a real app, this data would likely come from an API
+import gallery1 from '../../assets/gallery/gallery-photo-1.jpg';
+import gallery2 from '../../assets/gallery/gallery-photo-2.jpg';
+import gallery3 from '../../assets/gallery/gallery-photo-3.jpg';
+import gallery4 from '../../assets/gallery/gallery-photo-4.jpg';
+import gallery5 from '../../assets/gallery/gallery-photo-5.jpg';
+import gallery6 from '../../assets/gallery/gallery-photo-6.jpg';
+import gallery7 from '../../assets/gallery/gallery-photo-7.jpg';
+import gallery8 from '../../assets/gallery/gallery-photo-8.jpg';
+import gallery9 from '../../assets/gallery/gallery-photo-9.jpg';
+
+const allImages = [
+  'placeholder',
+  gallery1, gallery2, gallery3, gallery4, gallery5,
+  gallery6, gallery7, gallery8, gallery9,
+  // Add more images here to see pagination in action
 ];
+
+const IMAGES_PER_PAGE = 6;
 
 const GalleryGrid = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 5; // Example total pages
+  const totalPages = Math.ceil(allImages.length / IMAGES_PER_PAGE);
+
+  // Calculate the images for the current page
+  const startIndex = (currentPage - 1) * IMAGES_PER_PAGE;
+  const currentImages = allImages.slice(startIndex, startIndex + IMAGES_PER_PAGE);
 
   return (
     <div className="gallery-page-container">
@@ -28,7 +38,7 @@ const GalleryGrid = () => {
       </header>
 
       <div className="gallery-grid">
-        {images.map((imgSrc, index) => (
+        {currentImages.map((imgSrc, index) => (
           <div
             key={index}
             className={`gallery-item ${imgSrc === 'placeholder' ? 'placeholder' : ''}`}
@@ -44,8 +54,18 @@ const GalleryGrid = () => {
           <span className="total-pages">{String(totalPages).padStart(2, '0')}</span>
         </div>
         <div className="pagination-arrows">
-          <button onClick={() => setCurrentPage(p => Math.max(1, p - 1))}>←</button>
-          <button onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}>→</button>
+          <button 
+            onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+            disabled={currentPage === 1}
+          >
+            ←
+          </button>
+          <button 
+            onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+            disabled={currentPage === totalPages}
+          >
+            →
+          </button>
         </div>
       </footer>
     </div>

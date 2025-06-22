@@ -59,6 +59,11 @@
   color: #000000;
 }
 
+.pagination-arrows {
+  display: flex;
+  gap: 15px;
+}
+
 .pagination-arrows button {
   font-size: 24px;
   width: 53px;
